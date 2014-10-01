@@ -9,10 +9,14 @@
 # Build folder and log file
 build
 build.log
-dist
 libs
 bin
 Resources
 npm-debug.log
 tmp
 .map
+
+# Documentation & Example
+**/documentation/
+**/example
+
