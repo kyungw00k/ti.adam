@@ -24,7 +24,7 @@ Returns a view with an ad initialized by default.
 
 #### Arguments
 
-| key | value | description
+| key | value | description |
 | ----- | ----------- |
 | adUnitId `required` | `Your Ad Unit Id` | Ad Unit ID |
 | requestInterval `optional` |  12 ~ 120 |  default : `60` seconds, min : `12`, max : `120` |
