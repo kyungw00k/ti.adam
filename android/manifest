@@ -1,13 +1,9 @@
-#
-# this is your module manifest and used by Titanium
-# during compilation, packaging, distribution, etc.
-#
 version: 1.0.0
 apiversion: 2
-description: adam
-author: Your Name
-license: Specify your license
-copyright: Copyright (c) 2014 by Your Company
+description: Ad@m Mobile Ad SDK for Publiser
+author: Kyungwook Park
+license: MIT
+copyright: Copyright (c) 2014 by Kyungwook Park
 
 # these should not be edited
 name: adam
