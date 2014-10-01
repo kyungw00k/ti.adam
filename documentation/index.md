@@ -2,7 +2,7 @@
 
 ## Description
 
-TODO: Enter your module description here
+Ad@m Mobile Ad App SDK for Titanium
 
 ## Accessing the adam Module
 
@@ -12,28 +12,71 @@ To access this module from JavaScript, you would do the following:
 
 The adam variable is a reference to the Module object.
 
-## Reference
+## Adam for Publishers Developer Docs
 
-TODO: If your module has an API, you should document
-the reference here.
+See [Ad@m Android Publisher SDK Guide](https://github.com/mobilead/mobilead-android-sdk/blob/master/GUIDE.md)
 
-### adam.function
+## Functions
 
-TODO: This is an example of a module function.
+### createBannerAdView({...})
 
-### adam.property
+Returns a view with an ad initialized by default.
 
-TODO: This is an example of a module property.
+#### Arguments
 
-## Usage
+| key | value | description
+| ----- | ----------- |
+| adUnitId `required` | `Your Ad Unit Id` | Ad Unit ID |
+| requestInterval `optional` |  12 ~ 120 |  default : `60` seconds, min : `12`, max : `120` |
+| transition `optional` | One of `none`(default), `flipVertical`, `flipHorizontal`, `slide`, `fade`| Ad switching animation. |
 
-TODO: Enter your usage example here
+## Example
 
-## Author
+    var win = Ti.UI.createWindow({
+      backgroundColor:'black'
+    });
 
-TODO: Enter your author name, email and other contact
-details you want to share here.
+    var adam = require('ti.adam');
 
-## License
+    Ti.API.info(adam);
 
-TODO: Enter your license/legal information here.
+    if (Ti.Platform.name == "android") {
+      var banner = adam.createBannerAdView({
+        //
+        // AD UNIT ID
+        //
+        adUnitId : 'TestClientId',
+
+        //
+        // ad request interval
+        // value : default 60s (min : 12s, max : 120s)
+        //
+        requestInterval : 60,
+
+        //
+        // animation when ad is switching to another
+        // value : none, flipVertical, flipHorizontal, slide, fade
+        //
+        transition : 'fade'
+      });
+
+      Ti.API.info(banner);
+
+      //
+      // callback when ad has received
+      //
+      banner.addEventListener("ad_received", function(){
+        Ti.API.info("ad received");
+      });
+
+      //
+      // callback when ad has not received
+      //
+      banner.addEventListener("ad_not_received", function(){
+          Ti.API.info("ad not received");
+      });
+
+      win.add(banner);
+    }
+
+    win.open();

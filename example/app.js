@@ -1,24 +1,33 @@
-// This is a test harness for your module
-// You should do something interesting in this harness
-// to test out the module and to provide instructions
-// to users on how to use it by example.
-
-
-// open a single window
 var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+	backgroundColor:'black'
 });
-var label = Ti.UI.createLabel();
-win.add(label);
-win.open();
 
 var adam = require('ti.adam');
 
+Ti.API.info(adam);
+
 if (Ti.Platform.name == "android") {
-	var proxy = adam.createBannerAdView({
+	var banner = adam.createBannerAdView({
 		adUnitId : 'TestClientId',
-		requestInterval : 12,
+		requestInterval : 60, // default 60s (min : 12s, max : 120s)
 		transition : 'fade' // none, flipVertical, flipHorizontal, slide, fade
 	});
-	win.add(proxy);
+
+	Ti.API.info(banner);
+
+	//
+	// callback for ad received 
+	//
+	banner.addEventListener("ad_received", function(){
+	    Ti.API.info("ad received");
+	});
+
+	banner.addEventListener("ad_not_received", function(){
+	    Ti.API.info("ad not received");
+	});
+
+
+	win.add(banner);
 }
+
+win.open();
