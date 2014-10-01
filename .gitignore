@@ -1,0 +1,18 @@
+# IDE Dependent file
+.settings/
+.project
+.classpath
+
+# OS specific file
+.DS_Store
+
+# Build folder and log file
+build
+build.log
+dist
+libs
+bin
+Resources
+npm-debug.log
+tmp
+.map
