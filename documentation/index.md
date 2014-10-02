@@ -25,7 +25,7 @@ Returns a view with an ad initialized by default.
 #### Arguments
 
 | key | value | description |
-| ----- | ----------- |
+| --- | ----- | ----------- |
 | adUnitId `required` | `Your Ad Unit Id` | Ad Unit ID |
 | requestInterval `optional` |  12 ~ 120 |  default : `60` seconds, min : `12`, max : `120` |
 | transition `optional` | One of `none`(default), `flipVertical`, `flipHorizontal`, `slide`, `fade`| Ad switching animation. |
@@ -80,3 +80,17 @@ Returns a view with an ad initialized by default.
     }
 
     win.open();
+
+## Alloy Example
+.xml
+
+    <BannerAdView id="adamBanner" module="ti.adam"></BannerAdView>
+
+.tss
+
+    "#adamBanner" : {
+    	adUnitId : 'TestClientId',
+	    requestInterval : 60, 
+	    transition : 'fade',
+	    top : 0
+    }
